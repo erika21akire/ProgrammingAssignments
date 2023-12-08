@@ -13,11 +13,8 @@ namespace Numbers
         public static String[] tens = { "","Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
         public static String[] hundreds = { "hundred" };
 
-
-
         public static String ConvertAmount(double amount)
         {
-        
             {
                 int amount_int = (int)amount;
                 int amount_dec = (int)Math.Round((amount - (double)(amount_int)) * 100);

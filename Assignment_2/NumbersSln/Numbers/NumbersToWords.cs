@@ -9,8 +9,8 @@ namespace Numbers
     internal class NumbersToWords
     {
         public static String[] units = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
-        public static String[] teens = { "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
-        public static String[] tens = { "","Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+        public static String[] teens = { "","Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
+        public static String[] tens = { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
         public static String[] hundreds = { "hundred" };
 
         public static String ConvertAmount(double amount)
@@ -37,7 +37,14 @@ namespace Numbers
         {
             if (i < 20)
             {
-                return units[i];
+                if (i < 20 & i > 10)
+                {
+                    return teens[i%10];
+                }
+                else
+                {
+                    return units[i];
+                }
             }
             if (i < 100)
             {
@@ -48,7 +55,7 @@ namespace Numbers
                 return units[i / 100] + " Hundred"
                         + ((i % 100 > 0) ? " And " + Convert(i % 100) : "");
             }
-            
+
             {
                 return Convert(i / 1000) + " Thousand "
                         + ((i % 1000 > 0) ? " " + Convert(i % 1000) : "");
@@ -56,4 +63,4 @@ namespace Numbers
             return i.ToString();
         }
     }
-}   
+}
